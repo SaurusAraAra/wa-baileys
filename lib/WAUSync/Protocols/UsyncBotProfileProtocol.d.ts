@@ -1,0 +1,37 @@
+declare class USyncBotProfileProtocol {
+    name: string;
+    constructor();
+    getQueryElement(): {
+        tag: string;
+        attrs: {};
+        content: {
+            tag: string;
+            attrs: {
+                v: string;
+            };
+        }[];
+    };
+    getUserElement(user: any): {
+        tag: string;
+        attrs: {};
+        content: {
+            tag: string;
+            attrs: {
+                persona_id: any;
+            };
+        }[];
+    };
+    parser(node: any): {
+        isDefault: boolean;
+        jid: any;
+        name: any;
+        attributes: any;
+        description: any;
+        category: any;
+        personaId: any;
+        commandsDescription: any;
+        commands: any[];
+        prompts: any[];
+    };
+}
+export { USyncBotProfileProtocol };

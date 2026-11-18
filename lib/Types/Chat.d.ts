@@ -1,0 +1,20 @@
+declare const ALL_WA_PATCH_NAMES: string[];
+declare const ReportType: Readonly<{
+    Block: "block_dialog";
+    OverflowMenuBlock: "overflow_menu_block";
+    OverflowMenuReport: "overflow_menu_report";
+    MediaViewer: "media_viewer";
+    MessageMenu: "message_menu";
+    CommunityHome: "community_home";
+    AccountInfoReport: "account_info_report";
+    GroupInfoReport: "group_info_report";
+    GroupSpamBannerReport: "group_spam_banner_report";
+    OneToOneChatSpamBannerReport: "1_1_spam_banner_report";
+    BizSpamBannerBlock: "biz_spam_banner_block";
+    ChatListBlock: "chat_list_block";
+    NotificationBlock: "notification_block";
+    StatusPostReport: "status_post_report";
+    NewsletterInfoReport: "newsletter_info_report";
+}>;
+export { ALL_WA_PATCH_NAMES };
+export { ReportType };

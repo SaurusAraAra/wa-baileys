@@ -1,0 +1,69 @@
+import * as BinaryInfo_js_1 from '../WAM/BinaryInfo.js';
+import * as Client_1 from './Client/index.js';
+/**
+ * Connects to WA servers and performs:
+ * - simple queries (no retry mechanism, wait for connection establishment)
+ * - listen to messages and emit events
+ * - query phone connection
+ */
+declare const makeSocket: (config: any) => {
+    type: string;
+    ws: Client_1.WebSocketClient;
+    ev: {
+        process(handler: any): () => void;
+        emit(event: any, evData: any): any;
+        isBuffering(): boolean;
+        buffer: () => void;
+        flush: () => boolean;
+        createBufferedFunction(work: any): (...args: any[]) => Promise<any>;
+        on: (...args: any[]) => any;
+        off: (...args: any[]) => any;
+        removeAllListeners: (...args: any[]) => any;
+        destroy(): void;
+    };
+    authState: {
+        creds: any;
+        keys: {
+            get: (type: any, ids: any) => Promise<any>;
+            set: (data: any) => Promise<void>;
+            isInTransaction: () => boolean;
+            transaction: (work: any, key: any) => Promise<any>;
+        };
+    };
+    signalRepository: any;
+    readonly user: any;
+    generateMessageTag: () => string;
+    query: (node: any, timeoutMs: any) => Promise<any>;
+    waitForMessage: (msgId: any, timeoutMs?: any) => Promise<any>;
+    waitForSocketOpen: () => Promise<void>;
+    sendRawMessage: (data: any) => Promise<void>;
+    sendNode: (frame: any) => Promise<void>;
+    logout: (msg: any) => Promise<void>;
+    end: (error: any) => Promise<void>;
+    registerSocketEndHandler: (handler: any) => void;
+    onUnexpectedError: (err: any, msg: any) => void;
+    uploadPreKeys: (count?: number) => Promise<void>;
+    uploadPreKeysToServerIfRequired: () => Promise<void>;
+    digestKeyBundle: () => Promise<void>;
+    rotateSignedPreKey: () => Promise<void>;
+    requestPairingCode: (phoneNumber: any, customPairingCode: any) => Promise<any>;
+    updateServerTimeOffset: ({ attrs }: {
+        attrs: any;
+    }) => void;
+    sendUnifiedSession: () => Promise<void>;
+    wamBuffer: BinaryInfo_js_1.BinaryInfo;
+    /** Waits for the connection to WA to reach a state */
+    waitForConnectionUpdate: (check: any, timeoutMs: any) => Promise<void>;
+    sendWAMBuffer: (wamBuffer: any) => Promise<any>;
+    executeUSyncQuery: (usyncQuery: any) => Promise<any>;
+    onWhatsApp: (...phoneNumber: any[]) => Promise<any>;
+    onWhatsAppUsername: (...usernames: any[]) => Promise<any>;
+    getUsernames: (...jids: any[]) => Promise<any>;
+    fetchAccountReachoutTimelock: () => Promise<{
+        isActive: boolean;
+        timeEnforcementEnds: Date;
+        enforcementType: any;
+    }>;
+    fetchNewChatMessageCap: () => Promise<any>;
+};
+export { makeSocket };
