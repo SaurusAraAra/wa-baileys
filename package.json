@@ -1,6 +1,6 @@
 {
   "name": "sauruspro-bail",
-  "version": "5.4.0",
+  "version": "1.0.0",
   "description": "Sauruspro Baileys - WhatsApp Web API (ESM) dengan SPR (Selective & Private Relay), Newsletter Status, Native Flow, A2UI, status grup, dan VoIP.",
   "keywords": [
     "whatsapp",
